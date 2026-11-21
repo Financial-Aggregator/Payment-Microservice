@@ -144,7 +144,7 @@
 
                     <!-- 3. Ваша директория с .proto файлами -->
                     <sourceDirectories>
-                        <sourceDirectory>${project.basedir}/src/main/proto-contracts/user</sourceDirectory>
+                        <sourceDirectory>${project.basedir}/src/main/proto</sourceDirectory>
                     </sourceDirectories>
 
                     <!-- gRPC 1.58 generated sources use javax.annotation.Generated. -->
