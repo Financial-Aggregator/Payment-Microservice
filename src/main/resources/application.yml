@@ -1,3 +1,6 @@
 spring:
   application:
-    name: Payment Microcervice
+    name: payment-service
+
+server:
+  port: 4040
