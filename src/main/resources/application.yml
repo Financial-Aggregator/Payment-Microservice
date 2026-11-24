@@ -19,7 +19,11 @@ spring:
       group-id: banking-group
       auto-offset-reset: latest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serialization.JsonDeserializer
+      properties:
+        spring.json.value.default.type: ru.bank.paymentmicrocervice.dto.InputEvent
+        spring.json.trusted.packages: ru.bank.paymentmicrocervice.dto
+        spring.json.use.type.headers: false
 
 server:
   port: 4040
