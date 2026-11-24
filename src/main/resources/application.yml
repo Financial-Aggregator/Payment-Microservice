@@ -1,3 +1,29 @@
 spring:
   application:
-    name: Payment Microcervice
+    name: payment-service
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:7432/payment}
+    username: ${SPRING_DATASOURCE_USERNAME:payment}
+    password: ${SPRING_DATASOURCE_PASSWORD:payment}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: banking-group
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.value.default.type: ru.bank.paymentmicrocervice.dto.InputEvent
+        spring.json.trusted.packages: ru.bank.paymentmicrocervice.dto
+        spring.json.use.type.headers: false
+
+server:
+  port: 4040
