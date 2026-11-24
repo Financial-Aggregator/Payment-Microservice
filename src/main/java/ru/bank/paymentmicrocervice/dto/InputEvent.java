@@ -15,7 +15,7 @@ public class InputEvent {
 
     private UUID fromCardId;
 
-    private UUID toAccountId;
+    private UUID toCardId;
 
     private BigDecimal amount;
 

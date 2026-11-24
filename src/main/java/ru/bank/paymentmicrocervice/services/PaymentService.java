@@ -38,7 +38,7 @@ public class PaymentService {
         Transfer transfer = new Transfer();
         transfer.setAmount(normalizeAmount(inputEvent.getAmount()));
         transfer.setFromCardId(inputEvent.getFromCardId());
-        transfer.setToAccountId(inputEvent.getToAccountId());
+        transfer.setToCardId(inputEvent.getToCardId());
         transfer.setType(Transfer.TransferType.valueOf(inputEvent.getType()));
 
         paymentRepository.save(transfer);
@@ -59,8 +59,8 @@ public class PaymentService {
         }
         if (event.getEventId() == null
                 || event.getFromCardId() == null
-                || event.getToAccountId() == null) {
-            throw new IllegalArgumentException("eventId, fromCardId and toAccountId are required");
+                || event.getToCardId() == null) {
+            throw new IllegalArgumentException("eventId, fromCardId and toCardId are required");
         }
         if (event.getAmount() == null || event.getAmount().signum() <= 0) {
             throw new IllegalArgumentException("amount must be positive");

@@ -26,8 +26,8 @@ public class Transfer {
     @Column(name = "from_card_id", nullable = false)
     private UUID fromCardId;
 
-    @Column(name = "to_account_id", nullable = false)
-    private UUID toAccountId;
+    @Column(name = "to_card_id", nullable = false)
+    private UUID toCardId;
 
     @Column(name = "amount", precision = 19, scale = 2, nullable = false)
     private BigDecimal amount;
